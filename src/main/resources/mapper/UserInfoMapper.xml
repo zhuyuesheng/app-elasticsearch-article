@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhuys.module.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.zhuys.module.entity.UserInfo" >
+    <id column="yhid" property="yhid" jdbcType="VARCHAR" />
+    <result column="bp" property="bp" jdbcType="VARCHAR" />
+    <result column="cabm" property="cabm" jdbcType="VARCHAR" />
+    <result column="change_bmbh" property="changeBmbh" jdbcType="VARCHAR" />
+    <result column="cjr" property="cjr" jdbcType="VARCHAR" />
+    <result column="cjsj" property="cjsj" jdbcType="VARCHAR" />
+    <result column="csrq" property="csrq" jdbcType="VARCHAR" />
+    <result column="dllx" property="dllx" jdbcType="VARCHAR" />
+    <result column="dzqzjz" property="dzqzjz" jdbcType="VARCHAR" />
+    <result column="dzqzqs" property="dzqzqs" jdbcType="VARCHAR" />
+    <result column="e_mail" property="eMail" jdbcType="VARCHAR" />
+    <result column="imorder" property="imorder" jdbcType="VARCHAR" />
+    <result column="jyhm" property="jyhm" jdbcType="VARCHAR" />
+    <result column="lockyh" property="lockyh" jdbcType="VARCHAR" />
+    <result column="logerrortimes" property="logerrortimes" jdbcType="VARCHAR" />
+    <result column="mgr_level" property="mgrLevel" jdbcType="VARCHAR" />
+    <result column="mj" property="mj" jdbcType="INTEGER" />
+    <result column="nc" property="nc" jdbcType="VARCHAR" />
+    <result column="yhmm" property="yhmm" jdbcType="VARCHAR" />
+    <result column="qxqz" property="qxqz" jdbcType="VARCHAR" />
+    <result column="scyy" property="scyy" jdbcType="VARCHAR" />
+    <result column="sfshrz" property="sfshrz" jdbcType="VARCHAR" />
+    <result column="sfzh" property="sfzh" jdbcType="VARCHAR" />
+    <result column="shr" property="shr" jdbcType="VARCHAR" />
+    <result column="shsj" property="shsj" jdbcType="DATE" />
+    <result column="shyy" property="shyy" jdbcType="VARCHAR" />
+    <result column="sjhm" property="sjhm" jdbcType="VARCHAR" />
+    <result column="spsj" property="spsj" jdbcType="VARCHAR" />
+    <result column="sqlx" property="sqlx" jdbcType="VARCHAR" />
+    <result column="sqsjjz" property="sqsjjz" jdbcType="VARCHAR" />
+    <result column="ssxt" property="ssxt" jdbcType="VARCHAR" />
+    <result column="sxsjqs" property="sxsjqs" jdbcType="VARCHAR" />
+    <result column="xgmmsj" property="xgmmsj" jdbcType="VARCHAR" />
+    <result column="xgr" property="xgr" jdbcType="VARCHAR" />
+    <result column="xgsj" property="xgsj" jdbcType="VARCHAR" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+    <result column="xyzt" property="xyzt" jdbcType="VARCHAR" />
+    <result column="yhzt" property="yhzt" jdbcType="VARCHAR" />
+    <result column="yhzw" property="yhzw" jdbcType="VARCHAR" />
+    <result column="yxqs" property="yxqs" jdbcType="VARCHAR" />
+    <result column="zhdlip" property="zhdlip" jdbcType="VARCHAR" />
+    <result column="zhdlsj" property="zhdlsj" jdbcType="DATE" />
+    <result column="zsid" property="zsid" jdbcType="VARCHAR" />
+    <result column="bmbh" property="bmbh" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    yhid, bp, cabm, change_bmbh, cjr, cjsj, csrq, dllx, dzqzjz, dzqzqs, e_mail, imorder, 
+    jyhm, lockyh, logerrortimes, mgr_level, mj, nc, yhmm, qxqz, scyy, sfshrz, sfzh, shr, 
+    shsj, shyy, sjhm, spsj, sqlx, sqsjjz, ssxt, sxsjqs, xgmmsj, xgr, xgsj, xm, xyzt, 
+    yhzt, yhzw, yxqs, zhdlip, zhdlsj, zsid, bmbh
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhuys.module.entity.UserInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where yhid = #{yhid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user_info
+    where yhid = #{yhid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zhuys.module.entity.UserInfoExample" >
+    delete from user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zhuys.module.entity.UserInfo" >
+    insert into user_info (yhid, bp, cabm, 
+      change_bmbh, cjr, cjsj, 
+      csrq, dllx, dzqzjz, 
+      dzqzqs, e_mail, imorder, 
+      jyhm, lockyh, logerrortimes, 
+      mgr_level, mj, nc, yhmm, 
+      qxqz, scyy, sfshrz, 
+      sfzh, shr, shsj, shyy, 
+      sjhm, spsj, sqlx, sqsjjz, 
+      ssxt, sxsjqs, xgmmsj, 
+      xgr, xgsj, xm, xyzt, 
+      yhzt, yhzw, yxqs, zhdlip, 
+      zhdlsj, zsid, bmbh)
+    values (#{yhid,jdbcType=VARCHAR}, #{bp,jdbcType=VARCHAR}, #{cabm,jdbcType=VARCHAR}, 
+      #{changeBmbh,jdbcType=VARCHAR}, #{cjr,jdbcType=VARCHAR}, #{cjsj,jdbcType=VARCHAR}, 
+      #{csrq,jdbcType=VARCHAR}, #{dllx,jdbcType=VARCHAR}, #{dzqzjz,jdbcType=VARCHAR}, 
+      #{dzqzqs,jdbcType=VARCHAR}, #{eMail,jdbcType=VARCHAR}, #{imorder,jdbcType=VARCHAR}, 
+      #{jyhm,jdbcType=VARCHAR}, #{lockyh,jdbcType=VARCHAR}, #{logerrortimes,jdbcType=VARCHAR}, 
+      #{mgrLevel,jdbcType=VARCHAR}, #{mj,jdbcType=INTEGER}, #{nc,jdbcType=VARCHAR}, #{yhmm,jdbcType=VARCHAR}, 
+      #{qxqz,jdbcType=VARCHAR}, #{scyy,jdbcType=VARCHAR}, #{sfshrz,jdbcType=VARCHAR}, 
+      #{sfzh,jdbcType=VARCHAR}, #{shr,jdbcType=VARCHAR}, #{shsj,jdbcType=DATE}, #{shyy,jdbcType=VARCHAR}, 
+      #{sjhm,jdbcType=VARCHAR}, #{spsj,jdbcType=VARCHAR}, #{sqlx,jdbcType=VARCHAR}, #{sqsjjz,jdbcType=VARCHAR}, 
+      #{ssxt,jdbcType=VARCHAR}, #{sxsjqs,jdbcType=VARCHAR}, #{xgmmsj,jdbcType=VARCHAR}, 
+      #{xgr,jdbcType=VARCHAR}, #{xgsj,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{xyzt,jdbcType=VARCHAR}, 
+      #{yhzt,jdbcType=VARCHAR}, #{yhzw,jdbcType=VARCHAR}, #{yxqs,jdbcType=VARCHAR}, #{zhdlip,jdbcType=VARCHAR}, 
+      #{zhdlsj,jdbcType=DATE}, #{zsid,jdbcType=VARCHAR}, #{bmbh,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhuys.module.entity.UserInfo" >
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="yhid != null" >
+        yhid,
+      </if>
+      <if test="bp != null" >
+        bp,
+      </if>
+      <if test="cabm != null" >
+        cabm,
+      </if>
+      <if test="changeBmbh != null" >
+        change_bmbh,
+      </if>
+      <if test="cjr != null" >
+        cjr,
+      </if>
+      <if test="cjsj != null" >
+        cjsj,
+      </if>
+      <if test="csrq != null" >
+        csrq,
+      </if>
+      <if test="dllx != null" >
+        dllx,
+      </if>
+      <if test="dzqzjz != null" >
+        dzqzjz,
+      </if>
+      <if test="dzqzqs != null" >
+        dzqzqs,
+      </if>
+      <if test="eMail != null" >
+        e_mail,
+      </if>
+      <if test="imorder != null" >
+        imorder,
+      </if>
+      <if test="jyhm != null" >
+        jyhm,
+      </if>
+      <if test="lockyh != null" >
+        lockyh,
+      </if>
+      <if test="logerrortimes != null" >
+        logerrortimes,
+      </if>
+      <if test="mgrLevel != null" >
+        mgr_level,
+      </if>
+      <if test="mj != null" >
+        mj,
+      </if>
+      <if test="nc != null" >
+        nc,
+      </if>
+      <if test="yhmm != null" >
+        yhmm,
+      </if>
+      <if test="qxqz != null" >
+        qxqz,
+      </if>
+      <if test="scyy != null" >
+        scyy,
+      </if>
+      <if test="sfshrz != null" >
+        sfshrz,
+      </if>
+      <if test="sfzh != null" >
+        sfzh,
+      </if>
+      <if test="shr != null" >
+        shr,
+      </if>
+      <if test="shsj != null" >
+        shsj,
+      </if>
+      <if test="shyy != null" >
+        shyy,
+      </if>
+      <if test="sjhm != null" >
+        sjhm,
+      </if>
+      <if test="spsj != null" >
+        spsj,
+      </if>
+      <if test="sqlx != null" >
+        sqlx,
+      </if>
+      <if test="sqsjjz != null" >
+        sqsjjz,
+      </if>
+      <if test="ssxt != null" >
+        ssxt,
+      </if>
+      <if test="sxsjqs != null" >
+        sxsjqs,
+      </if>
+      <if test="xgmmsj != null" >
+        xgmmsj,
+      </if>
+      <if test="xgr != null" >
+        xgr,
+      </if>
+      <if test="xgsj != null" >
+        xgsj,
+      </if>
+      <if test="xm != null" >
+        xm,
+      </if>
+      <if test="xyzt != null" >
+        xyzt,
+      </if>
+      <if test="yhzt != null" >
+        yhzt,
+      </if>
+      <if test="yhzw != null" >
+        yhzw,
+      </if>
+      <if test="yxqs != null" >
+        yxqs,
+      </if>
+      <if test="zhdlip != null" >
+        zhdlip,
+      </if>
+      <if test="zhdlsj != null" >
+        zhdlsj,
+      </if>
+      <if test="zsid != null" >
+        zsid,
+      </if>
+      <if test="bmbh != null" >
+        bmbh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="yhid != null" >
+        #{yhid,jdbcType=VARCHAR},
+      </if>
+      <if test="bp != null" >
+        #{bp,jdbcType=VARCHAR},
+      </if>
+      <if test="cabm != null" >
+        #{cabm,jdbcType=VARCHAR},
+      </if>
+      <if test="changeBmbh != null" >
+        #{changeBmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="cjr != null" >
+        #{cjr,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj != null" >
+        #{cjsj,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null" >
+        #{csrq,jdbcType=VARCHAR},
+      </if>
+      <if test="dllx != null" >
+        #{dllx,jdbcType=VARCHAR},
+      </if>
+      <if test="dzqzjz != null" >
+        #{dzqzjz,jdbcType=VARCHAR},
+      </if>
+      <if test="dzqzqs != null" >
+        #{dzqzqs,jdbcType=VARCHAR},
+      </if>
+      <if test="eMail != null" >
+        #{eMail,jdbcType=VARCHAR},
+      </if>
+      <if test="imorder != null" >
+        #{imorder,jdbcType=VARCHAR},
+      </if>
+      <if test="jyhm != null" >
+        #{jyhm,jdbcType=VARCHAR},
+      </if>
+      <if test="lockyh != null" >
+        #{lockyh,jdbcType=VARCHAR},
+      </if>
+      <if test="logerrortimes != null" >
+        #{logerrortimes,jdbcType=VARCHAR},
+      </if>
+      <if test="mgrLevel != null" >
+        #{mgrLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="mj != null" >
+        #{mj,jdbcType=INTEGER},
+      </if>
+      <if test="nc != null" >
+        #{nc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmm != null" >
+        #{yhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="qxqz != null" >
+        #{qxqz,jdbcType=VARCHAR},
+      </if>
+      <if test="scyy != null" >
+        #{scyy,jdbcType=VARCHAR},
+      </if>
+      <if test="sfshrz != null" >
+        #{sfshrz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="shsj != null" >
+        #{shsj,jdbcType=DATE},
+      </if>
+      <if test="shyy != null" >
+        #{shyy,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm != null" >
+        #{sjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="spsj != null" >
+        #{spsj,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlx != null" >
+        #{sqlx,jdbcType=VARCHAR},
+      </if>
+      <if test="sqsjjz != null" >
+        #{sqsjjz,jdbcType=VARCHAR},
+      </if>
+      <if test="ssxt != null" >
+        #{ssxt,jdbcType=VARCHAR},
+      </if>
+      <if test="sxsjqs != null" >
+        #{sxsjqs,jdbcType=VARCHAR},
+      </if>
+      <if test="xgmmsj != null" >
+        #{xgmmsj,jdbcType=VARCHAR},
+      </if>
+      <if test="xgr != null" >
+        #{xgr,jdbcType=VARCHAR},
+      </if>
+      <if test="xgsj != null" >
+        #{xgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xyzt != null" >
+        #{xyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="yhzt != null" >
+        #{yhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="yhzw != null" >
+        #{yhzw,jdbcType=VARCHAR},
+      </if>
+      <if test="yxqs != null" >
+        #{yxqs,jdbcType=VARCHAR},
+      </if>
+      <if test="zhdlip != null" >
+        #{zhdlip,jdbcType=VARCHAR},
+      </if>
+      <if test="zhdlsj != null" >
+        #{zhdlsj,jdbcType=DATE},
+      </if>
+      <if test="zsid != null" >
+        #{zsid,jdbcType=VARCHAR},
+      </if>
+      <if test="bmbh != null" >
+        #{bmbh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zhuys.module.entity.UserInfoExample" resultType="java.lang.Integer" >
+    select count(*) from user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_info
+    <set >
+      <if test="record.yhid != null" >
+        yhid = #{record.yhid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bp != null" >
+        bp = #{record.bp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cabm != null" >
+        cabm = #{record.cabm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.changeBmbh != null" >
+        change_bmbh = #{record.changeBmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cjr != null" >
+        cjr = #{record.cjr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cjsj != null" >
+        cjsj = #{record.cjsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.csrq != null" >
+        csrq = #{record.csrq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dllx != null" >
+        dllx = #{record.dllx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dzqzjz != null" >
+        dzqzjz = #{record.dzqzjz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dzqzqs != null" >
+        dzqzqs = #{record.dzqzqs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eMail != null" >
+        e_mail = #{record.eMail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imorder != null" >
+        imorder = #{record.imorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jyhm != null" >
+        jyhm = #{record.jyhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lockyh != null" >
+        lockyh = #{record.lockyh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logerrortimes != null" >
+        logerrortimes = #{record.logerrortimes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mgrLevel != null" >
+        mgr_level = #{record.mgrLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mj != null" >
+        mj = #{record.mj,jdbcType=INTEGER},
+      </if>
+      <if test="record.nc != null" >
+        nc = #{record.nc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yhmm != null" >
+        yhmm = #{record.yhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qxqz != null" >
+        qxqz = #{record.qxqz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scyy != null" >
+        scyy = #{record.scyy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfshrz != null" >
+        sfshrz = #{record.sfshrz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfzh != null" >
+        sfzh = #{record.sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shr != null" >
+        shr = #{record.shr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shsj != null" >
+        shsj = #{record.shsj,jdbcType=DATE},
+      </if>
+      <if test="record.shyy != null" >
+        shyy = #{record.shyy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sjhm != null" >
+        sjhm = #{record.sjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spsj != null" >
+        spsj = #{record.spsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sqlx != null" >
+        sqlx = #{record.sqlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sqsjjz != null" >
+        sqsjjz = #{record.sqsjjz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ssxt != null" >
+        ssxt = #{record.ssxt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxsjqs != null" >
+        sxsjqs = #{record.sxsjqs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xgmmsj != null" >
+        xgmmsj = #{record.xgmmsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xgr != null" >
+        xgr = #{record.xgr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xgsj != null" >
+        xgsj = #{record.xgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xm != null" >
+        xm = #{record.xm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xyzt != null" >
+        xyzt = #{record.xyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yhzt != null" >
+        yhzt = #{record.yhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yhzw != null" >
+        yhzw = #{record.yhzw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yxqs != null" >
+        yxqs = #{record.yxqs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhdlip != null" >
+        zhdlip = #{record.zhdlip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhdlsj != null" >
+        zhdlsj = #{record.zhdlsj,jdbcType=DATE},
+      </if>
+      <if test="record.zsid != null" >
+        zsid = #{record.zsid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bmbh != null" >
+        bmbh = #{record.bmbh,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_info
+    set yhid = #{record.yhid,jdbcType=VARCHAR},
+      bp = #{record.bp,jdbcType=VARCHAR},
+      cabm = #{record.cabm,jdbcType=VARCHAR},
+      change_bmbh = #{record.changeBmbh,jdbcType=VARCHAR},
+      cjr = #{record.cjr,jdbcType=VARCHAR},
+      cjsj = #{record.cjsj,jdbcType=VARCHAR},
+      csrq = #{record.csrq,jdbcType=VARCHAR},
+      dllx = #{record.dllx,jdbcType=VARCHAR},
+      dzqzjz = #{record.dzqzjz,jdbcType=VARCHAR},
+      dzqzqs = #{record.dzqzqs,jdbcType=VARCHAR},
+      e_mail = #{record.eMail,jdbcType=VARCHAR},
+      imorder = #{record.imorder,jdbcType=VARCHAR},
+      jyhm = #{record.jyhm,jdbcType=VARCHAR},
+      lockyh = #{record.lockyh,jdbcType=VARCHAR},
+      logerrortimes = #{record.logerrortimes,jdbcType=VARCHAR},
+      mgr_level = #{record.mgrLevel,jdbcType=VARCHAR},
+      mj = #{record.mj,jdbcType=INTEGER},
+      nc = #{record.nc,jdbcType=VARCHAR},
+      yhmm = #{record.yhmm,jdbcType=VARCHAR},
+      qxqz = #{record.qxqz,jdbcType=VARCHAR},
+      scyy = #{record.scyy,jdbcType=VARCHAR},
+      sfshrz = #{record.sfshrz,jdbcType=VARCHAR},
+      sfzh = #{record.sfzh,jdbcType=VARCHAR},
+      shr = #{record.shr,jdbcType=VARCHAR},
+      shsj = #{record.shsj,jdbcType=DATE},
+      shyy = #{record.shyy,jdbcType=VARCHAR},
+      sjhm = #{record.sjhm,jdbcType=VARCHAR},
+      spsj = #{record.spsj,jdbcType=VARCHAR},
+      sqlx = #{record.sqlx,jdbcType=VARCHAR},
+      sqsjjz = #{record.sqsjjz,jdbcType=VARCHAR},
+      ssxt = #{record.ssxt,jdbcType=VARCHAR},
+      sxsjqs = #{record.sxsjqs,jdbcType=VARCHAR},
+      xgmmsj = #{record.xgmmsj,jdbcType=VARCHAR},
+      xgr = #{record.xgr,jdbcType=VARCHAR},
+      xgsj = #{record.xgsj,jdbcType=VARCHAR},
+      xm = #{record.xm,jdbcType=VARCHAR},
+      xyzt = #{record.xyzt,jdbcType=VARCHAR},
+      yhzt = #{record.yhzt,jdbcType=VARCHAR},
+      yhzw = #{record.yhzw,jdbcType=VARCHAR},
+      yxqs = #{record.yxqs,jdbcType=VARCHAR},
+      zhdlip = #{record.zhdlip,jdbcType=VARCHAR},
+      zhdlsj = #{record.zhdlsj,jdbcType=DATE},
+      zsid = #{record.zsid,jdbcType=VARCHAR},
+      bmbh = #{record.bmbh,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhuys.module.entity.UserInfo" >
+    update user_info
+    <set >
+      <if test="bp != null" >
+        bp = #{bp,jdbcType=VARCHAR},
+      </if>
+      <if test="cabm != null" >
+        cabm = #{cabm,jdbcType=VARCHAR},
+      </if>
+      <if test="changeBmbh != null" >
+        change_bmbh = #{changeBmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="cjr != null" >
+        cjr = #{cjr,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj != null" >
+        cjsj = #{cjsj,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null" >
+        csrq = #{csrq,jdbcType=VARCHAR},
+      </if>
+      <if test="dllx != null" >
+        dllx = #{dllx,jdbcType=VARCHAR},
+      </if>
+      <if test="dzqzjz != null" >
+        dzqzjz = #{dzqzjz,jdbcType=VARCHAR},
+      </if>
+      <if test="dzqzqs != null" >
+        dzqzqs = #{dzqzqs,jdbcType=VARCHAR},
+      </if>
+      <if test="eMail != null" >
+        e_mail = #{eMail,jdbcType=VARCHAR},
+      </if>
+      <if test="imorder != null" >
+        imorder = #{imorder,jdbcType=VARCHAR},
+      </if>
+      <if test="jyhm != null" >
+        jyhm = #{jyhm,jdbcType=VARCHAR},
+      </if>
+      <if test="lockyh != null" >
+        lockyh = #{lockyh,jdbcType=VARCHAR},
+      </if>
+      <if test="logerrortimes != null" >
+        logerrortimes = #{logerrortimes,jdbcType=VARCHAR},
+      </if>
+      <if test="mgrLevel != null" >
+        mgr_level = #{mgrLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="mj != null" >
+        mj = #{mj,jdbcType=INTEGER},
+      </if>
+      <if test="nc != null" >
+        nc = #{nc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmm != null" >
+        yhmm = #{yhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="qxqz != null" >
+        qxqz = #{qxqz,jdbcType=VARCHAR},
+      </if>
+      <if test="scyy != null" >
+        scyy = #{scyy,jdbcType=VARCHAR},
+      </if>
+      <if test="sfshrz != null" >
+        sfshrz = #{sfshrz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        sfzh = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        shr = #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="shsj != null" >
+        shsj = #{shsj,jdbcType=DATE},
+      </if>
+      <if test="shyy != null" >
+        shyy = #{shyy,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm != null" >
+        sjhm = #{sjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="spsj != null" >
+        spsj = #{spsj,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlx != null" >
+        sqlx = #{sqlx,jdbcType=VARCHAR},
+      </if>
+      <if test="sqsjjz != null" >
+        sqsjjz = #{sqsjjz,jdbcType=VARCHAR},
+      </if>
+      <if test="ssxt != null" >
+        ssxt = #{ssxt,jdbcType=VARCHAR},
+      </if>
+      <if test="sxsjqs != null" >
+        sxsjqs = #{sxsjqs,jdbcType=VARCHAR},
+      </if>
+      <if test="xgmmsj != null" >
+        xgmmsj = #{xgmmsj,jdbcType=VARCHAR},
+      </if>
+      <if test="xgr != null" >
+        xgr = #{xgr,jdbcType=VARCHAR},
+      </if>
+      <if test="xgsj != null" >
+        xgsj = #{xgsj,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xyzt != null" >
+        xyzt = #{xyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="yhzt != null" >
+        yhzt = #{yhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="yhzw != null" >
+        yhzw = #{yhzw,jdbcType=VARCHAR},
+      </if>
+      <if test="yxqs != null" >
+        yxqs = #{yxqs,jdbcType=VARCHAR},
+      </if>
+      <if test="zhdlip != null" >
+        zhdlip = #{zhdlip,jdbcType=VARCHAR},
+      </if>
+      <if test="zhdlsj != null" >
+        zhdlsj = #{zhdlsj,jdbcType=DATE},
+      </if>
+      <if test="zsid != null" >
+        zsid = #{zsid,jdbcType=VARCHAR},
+      </if>
+      <if test="bmbh != null" >
+        bmbh = #{bmbh,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where yhid = #{yhid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhuys.module.entity.UserInfo" >
+    update user_info
+    set bp = #{bp,jdbcType=VARCHAR},
+      cabm = #{cabm,jdbcType=VARCHAR},
+      change_bmbh = #{changeBmbh,jdbcType=VARCHAR},
+      cjr = #{cjr,jdbcType=VARCHAR},
+      cjsj = #{cjsj,jdbcType=VARCHAR},
+      csrq = #{csrq,jdbcType=VARCHAR},
+      dllx = #{dllx,jdbcType=VARCHAR},
+      dzqzjz = #{dzqzjz,jdbcType=VARCHAR},
+      dzqzqs = #{dzqzqs,jdbcType=VARCHAR},
+      e_mail = #{eMail,jdbcType=VARCHAR},
+      imorder = #{imorder,jdbcType=VARCHAR},
+      jyhm = #{jyhm,jdbcType=VARCHAR},
+      lockyh = #{lockyh,jdbcType=VARCHAR},
+      logerrortimes = #{logerrortimes,jdbcType=VARCHAR},
+      mgr_level = #{mgrLevel,jdbcType=VARCHAR},
+      mj = #{mj,jdbcType=INTEGER},
+      nc = #{nc,jdbcType=VARCHAR},
+      yhmm = #{yhmm,jdbcType=VARCHAR},
+      qxqz = #{qxqz,jdbcType=VARCHAR},
+      scyy = #{scyy,jdbcType=VARCHAR},
+      sfshrz = #{sfshrz,jdbcType=VARCHAR},
+      sfzh = #{sfzh,jdbcType=VARCHAR},
+      shr = #{shr,jdbcType=VARCHAR},
+      shsj = #{shsj,jdbcType=DATE},
+      shyy = #{shyy,jdbcType=VARCHAR},
+      sjhm = #{sjhm,jdbcType=VARCHAR},
+      spsj = #{spsj,jdbcType=VARCHAR},
+      sqlx = #{sqlx,jdbcType=VARCHAR},
+      sqsjjz = #{sqsjjz,jdbcType=VARCHAR},
+      ssxt = #{ssxt,jdbcType=VARCHAR},
+      sxsjqs = #{sxsjqs,jdbcType=VARCHAR},
+      xgmmsj = #{xgmmsj,jdbcType=VARCHAR},
+      xgr = #{xgr,jdbcType=VARCHAR},
+      xgsj = #{xgsj,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      xyzt = #{xyzt,jdbcType=VARCHAR},
+      yhzt = #{yhzt,jdbcType=VARCHAR},
+      yhzw = #{yhzw,jdbcType=VARCHAR},
+      yxqs = #{yxqs,jdbcType=VARCHAR},
+      zhdlip = #{zhdlip,jdbcType=VARCHAR},
+      zhdlsj = #{zhdlsj,jdbcType=DATE},
+      zsid = #{zsid,jdbcType=VARCHAR},
+      bmbh = #{bmbh,jdbcType=VARCHAR}
+    where yhid = #{yhid,jdbcType=VARCHAR}
+  </update>
+</mapper>

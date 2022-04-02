@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>搜索主页</title>
+    <link th:href="@{common_css/ht-sty.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body class="bodybg4" >
+<!--内容页-->
+<div class="liuc-con" id="app">
+    <div class="search_box">
+        <div class="juzhongbox">
+            <div class="ss_con">
+                <input type="text" class="s_txt" placeholder="输入信息搜索" v-model="searchStr">
+                <button class="s_btn" @click="searchContent();">查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="liuc_tabbox">
+        <div class="tab_top">
+            <a id="one1" class="ved">文库信息</a>
+        </div>
+        <div class="tab_bom">
+            <ul id="one11">
+                <li v-for="(item,index) in data">
+                    <h3><img th:src="@{common_img/ico_w.png}">{{item.head_name}}</h3>
+                    <p v-html="item.redContent"></p>
+                    <span>发布日期 ：2020-03-07   ｜ 下载次数 ：100  </span>
+                    <a href="https://www.17sucai.com/preview/722634/2020-03-24/sgcyhtml/index.html#">马上下载</a>
+                </li>
+            </ul>
+            <div class="page_box" style="display: none;">
+                <span>1</span>
+                <a href="https://www.17sucai.com/preview/722634/2020-03-24/sgcyhtml/index.html">2</a>
+                <a href="https://www.17sucai.com/preview/722634/2020-03-24/sgcyhtml/index.html">下一页</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="foot">版权：@author by zhuys @create 2022-04-01</div>
+<script th:src="@{common_js/vue-2.6.10.js}"      type="text/javascript"></script>
+<script th:src="@{common_js/jquery.min.js}"      type="text/javascript"></script>
+<script th:src="@{common_js/layer/layer.js}"      type="text/javascript"></script>
+<script th:src="@{common_js/ctxPath.js}"         type="text/javascript"></script>
+<script th:src="@{common_js/common-utils.js}"    type="text/javascript"></script>
+<script th:src="@{module/index/index.js}"        type="text/javascript"></script>
+</body>
+</html>
